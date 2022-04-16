@@ -157,7 +157,7 @@ func resourceKeypairCreate(ctx context.Context, d *schema.ResourceData, meta int
 	// write private key to local. only when it is not import public_key and the key_file is not empty
 	if fp, ok := d.GetOk("key_file"); ok {
 		if err = writeToPemFile(fp.(string), *response.Keypair.PrivateKey); err != nil {
-			return fmtp.DiagErrorf("Unable to generate private key: %s", err)
+			return fmtp.DiagErrorf("Unable to generate privated key: %s", err)
 		}
 		d.Set("key_file", fp)
 	}
