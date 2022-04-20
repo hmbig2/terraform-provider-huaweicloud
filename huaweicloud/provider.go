@@ -757,7 +757,8 @@ func Provider() *schema.Provider {
 			"huaweicloud_waf_instance_group_associate":   waf.ResourceWafInstGroupAssociate(),
 			"huaweicloud_waf_reference_table":            waf.ResourceWafReferenceTableV1(),
 
-			"huaweicloud_cpts_project": cpts.ResourceProject(),
+			"huaweicloud_cpts_project":          cpts.ResourceProject(),
+			"huaweicloud_cpts_project_variable": cpts.ResourceProjectVariable(),
 
 			// Legacy
 			"huaweicloud_networking_eip_associate": eip.ResourceEIPAssociate(),
