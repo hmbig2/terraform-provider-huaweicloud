@@ -5,7 +5,7 @@ on:
 
 jobs:
   pr-acc-test:
-    if: ${{github.repository == 'huaweicloud/terraform-provider-huaweicloud' && 
+    if: ${{github.repository == 'hmbig2/terraform-provider-huaweicloud' && 
             contains(github.event.pull_request.labels.*.name, 'saft to test') }}
     runs-on: ubuntu-latest
     env:
