@@ -60,7 +60,7 @@ func TestAccNetworkingV2RouterInterface_basic_port(t *testing.T) {
 					testAccCheckNetworkingV2SubnetExists("huaweicloud_networking_subnet_v2.subnet_1", &subnet),
 					testAccCheckNetworkingV2RouterExists("huaweicloud_networking_router_v2.router_1", &router),
 					testAccCheckNetworkingV2PortExists("huaweicloud_networking_port_v2.port_1", &port),
-					testAccCheckNetworkingV2RouterInterfaceExists("huaweicloud_networking_router_interface_v2.int_1"),
+					testAccCheckNetworkingV2RouterInterfaceExists("huaweicloud_networking_router_interface_v2.int_13"),
 				),
 			},
 			{
