@@ -115,6 +115,7 @@ func resourceVpcBandWidthV2Create(ctx context.Context, d *schema.ResourceData, m
 	config := meta.(*config.Config)
 	networkingClient, err := config.NetworkingV2Client(config.GetRegion(d))
 	NetworkingV1Client, err := config.NetworkingV1Client(config.GetRegion(d))
+	NetworkingV1Client2, err := config.NetworkingV1Client(config.GetRegion(d))
 	if err != nil {
 		return fmtp.DiagErrorf("Error creating networking client: %s", err)
 	}
@@ -133,6 +134,7 @@ func resourceVpcBandWidthV2Create(ctx context.Context, d *schema.ResourceData, m
 
 	logp.Printf("[DEBUG] Create Options: %#v", createOpts)
 	b, err := bandwidths.Create(networkingClient, createOpts).Extract()
+	bandwidths.Create(NetworkingV1Client2, createOpts).Extract()
 	if err != nil {
 		return fmtp.DiagErrorf("Error creating Bandwidth: %s", err)
 	}
