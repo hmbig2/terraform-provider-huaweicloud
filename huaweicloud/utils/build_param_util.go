@@ -269,8 +269,7 @@ func BuildCreateParam(opts interface{}, d *schema.ResourceData, nameMap *map[str
 func BuildUpdateParam(opts interface{}, d *schema.ResourceData, nameMap *map[string]string) ([]string, error) {
 	hasUpdatedItems := false
 
-	var f funcSkipOpt
-	f = func(optn string, jsonTags []string, tag reflect.StructTag) bool {
+	var f funcSkipOpt = func(optn string, jsonTags []string, tag reflect.StructTag) bool {
 		v := d.HasChange(optn)
 		if !hasUpdatedItems && v {
 			hasUpdatedItems = true

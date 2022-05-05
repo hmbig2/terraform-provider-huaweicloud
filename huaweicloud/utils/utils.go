@@ -30,7 +30,7 @@ func ConvertStructToMap(obj interface{}, nameMap map[string]string) (map[string]
 	nb := m.ReplaceAllFunc(
 		b,
 		func(src []byte) []byte {
-			k := fmt.Sprintf("%s", src[1:len(src)-2])
+			k := string(src[1 : len(src)-2])
 			v, ok := nameMap[k]
 			if !ok {
 				v = strings.ToLower(k)
