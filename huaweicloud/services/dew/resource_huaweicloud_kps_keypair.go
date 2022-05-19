@@ -26,6 +26,7 @@ const (
 	scopeDomainLabel = "account"
 )
 
+//2
 func ResourceKeypair() *schema.Resource {
 	return &schema.Resource{
 		CreateContext: resourceKeypairCreate,
