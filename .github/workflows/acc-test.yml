@@ -35,7 +35,7 @@ jobs:
           body="${body//$'\n'/'%0A'}"
           body="${body//$'\r'/'%0D'}" 
           commentLength="${#body}"
-          failed="$(grep -P -o '##\[summary\]\s\d*' pr-acc-test.log| grep -P -o '\d*')"
+          failed="$(grep -P -o '###\s\[summary\]\s\d*' pr-acc-test.log| grep -P -o '\d*')"
           reactions="laugh,rocket"
           if [ $failed -gt 0 ]; then
             reactions="confused,eyes"

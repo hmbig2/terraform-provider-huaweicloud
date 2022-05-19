@@ -32,4 +32,5 @@ for f in $all_files; do
     fi
 done
 
-echo -e "\n##[summary] $failed failed in $total resource acceptance tests"
+
+echo -e "\n### [summary] $failed failed in $total resource acceptance tests"
