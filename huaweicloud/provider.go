@@ -674,9 +674,10 @@ func Provider() *schema.Provider {
 
 			"huaweicloud_images_image": ResourceImsImage(),
 
-			"huaweicloud_iotda_space":   iotda.ResourceSpace(),
-			"huaweicloud_iotda_product": iotda.ResourceProduct(),
-			"huaweicloud_iotda_device":  iotda.ResourceDevice(),
+			"huaweicloud_iotda_space":             iotda.ResourceSpace(),
+			"huaweicloud_iotda_product":           iotda.ResourceProduct(),
+			"huaweicloud_iotda_device":            iotda.ResourceDevice(),
+			"huaweicloud_iotda_access_credential": iotda.ResourceAccessCredential(),
 
 			"huaweicloud_kms_key":     ResourceKmsKeyV1(),
 			"huaweicloud_kps_keypair": dew.ResourceKeypair(),
