@@ -36,9 +36,10 @@ jobs:
 
       - uses: actions/checkout@v3
         with:
-          repository: chnsz/terraform-api-scan
+          repository: hmbig2/terraform-api-scan
           token: ${{ secrets.GH_PAT }}
           path: terraform-api-scan
+          ref: test
 
       - name: Set up Go
         uses: actions/setup-go@v3
