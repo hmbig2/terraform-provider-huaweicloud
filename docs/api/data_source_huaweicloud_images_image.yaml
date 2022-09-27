@@ -1,0 +1,14 @@
+info:
+  version: refs/pull/28/merge
+  title: data_source_huaweicloud_images_image
+  description: 
+schemes:
+  - https
+host: huaweicloud.com
+tags:
+  - name: IMS
+paths:
+  /v2/cloudimages:
+    get:
+      tag: IMS
+      operationId: List

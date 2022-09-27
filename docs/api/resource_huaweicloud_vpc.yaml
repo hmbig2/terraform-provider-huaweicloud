@@ -20,7 +20,7 @@ paths:
             x-ref-api: DELETE /v1/{project_id}/vpcs/{id}
         GET:
             tag: vpc
-            operationId: CreateVpcWaiting
+            operationId: GetVpc
             x-ref-api: GET /v1/{project_id}/vpcs/{id}
         PUT:
             tag: vpc
