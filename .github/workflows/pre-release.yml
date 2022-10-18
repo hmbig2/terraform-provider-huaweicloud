@@ -16,7 +16,7 @@ jobs:
   scan-api:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    env
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -51,9 +51,25 @@ jobs:
         run: |
           version=$(head -n 4 terraform-provider-huaweicloud/CHANGELOG.md  | grep "^## " | awk '{printf "v%s", $2}')
           echo "VERSION=$version" >> $GITHUB_ENV
-      
-      - name: export schemas for the providers
+
+      - name: Build Terraform Provider
         run: |
+          cd terraform-provider-huaweicloud
+          make build FLAGS='-mod=readonly'
+          cd ..
+
+      - name: export schemas for the providers
+        env:
+          TF_CLI_CONFIG_FILE: ${{ GITHUB_WORKSPACE }}/hw_dev.tfrc
+        run: |
+          cat>${{ GITHUB_WORKSPACE }}/hw_dev.tfrc<<EOF
+          provider_installation {
+            dev_overrides {
+              "huaweicloud/huaweicloud" = "/home/runner/go/bin"
+            }
+            direct {}
+          }
+          EOF
           cd terraform-api-scan
           terraform init
           terraform providers schema -json > schema.json
